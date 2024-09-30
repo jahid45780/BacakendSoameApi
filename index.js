@@ -94,7 +94,7 @@ app.get("/posts/:id", async (req, res) => {
 
 });
 
-//  Add a new post
+//  post api
 app.post("/posts", (req, res) => {
     console.log(req.body);
     res.status(200).json({
@@ -105,7 +105,7 @@ app.post("/posts", (req, res) => {
 
 });
 
-//  updated method here 
+//  updated api
 app.put("/posts/:id", (req, res) => {
 
     const postId = req.params.id;
@@ -141,10 +141,10 @@ app.put("/posts/:id", (req, res) => {
     const postId = req.params.id;
 
    
-    const postIndex = posts.findIndex((data) => data._id === postId);
+    const postData = posts.findIndex((data) => data._id === postId);
   
-    if (postIndex !== -1) {
-        const deletedPost = posts.splice(postIndex, 1);
+    if (postData !== -1) {
+        const deletedPost = posts.splice(postData, 1);
       
         res.status(200).json({
             message: " deleted successfully",
